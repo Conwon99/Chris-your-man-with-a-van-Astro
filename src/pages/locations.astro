@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LocationsComponent from '../pages/Locations';
+import '../index.css';
+---
+
+<BaseLayout
+  title="Service Locations | Ayrshire Coverage | Chris, Your Man with a Van"
+  description="Professional van services available across Ayrshire. Service areas include Cumnock, Ayr, Kilmarnock, Irvine, Troon, Prestwick and surrounding areas."
+  canonical="https://chrisyourmanwithavan.netlify.app/locations"
+>
+  <LocationsComponent client:load />
+</BaseLayout>
+
+

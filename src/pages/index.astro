@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation';
+import Hero from '../components/Hero';
+import TrustBar from '../components/TrustBar';
+import AboutUs from '../components/AboutUs';
+import ProjectShowcase from '../components/ProjectShowcase';
+import ServicesGrid from '../components/ServicesGrid';
+import ServiceAreas from '../components/ServiceAreas';
+import Reviews from '../components/Reviews';
+import FAQ from '../components/FAQ';
+import ContactSection from '../components/ContactSection';
+import Footer from '../components/Footer';
+import '../index.css';
+---
+
+<BaseLayout
+  title="Chris, Your Man with a Van | Van Services Ayrshire | Reliable Man with a Van Cumnock"
+  description="Chris, Your Man with a Van - Professional van services across Ayrshire. Small removals, courier services, waste removal, flat-pack assembly. SEPA registered, 5-star service, affordable removals. Free quotes via WhatsApp."
+  keywords="chris your man with a van, van services ayrshire, man with a van cumnock, removals ayrshire, courier services ayrshire, reliable man with a van ayrshire, sepa registered waste removal ayrshire, affordable removals ayrshire, small removals ayrshire, house moves ayrshire"
+  canonical="https://chrisyourmanwithavan.netlify.app/"
+>
+  <main class="min-h-screen">
+    <Navigation client:load />
+    <Hero />
+    <TrustBar />
+    <AboutUs />
+    <ProjectShowcase />
+    <ServicesGrid />
+    <ServiceAreas />
+    <Reviews />
+    <FAQ client:load />
+    <ContactSection client:load />
+    <Footer />
+  </main>
+</BaseLayout>
+

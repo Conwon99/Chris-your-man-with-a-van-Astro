@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LocationDetailComponent from '../../pages/LocationDetail';
+import '../../index.css';
+
+export async function getStaticPaths() {
+  const locations = [
+    'cumnock',
+    'ayr',
+    'kilmarnock',
+    'irvine',
+    'troon',
+    'prestwick',
+    'kirkconnel',
+    'sanquhar',
+    'mossblown',
+  ];
+
+  return locations.map((slug) => ({
+    params: { slug },
+  }));
+}
+
+const { slug } = Astro.params;
+---
+
+<BaseLayout
+  title="Location Details | Chris, Your Man with a Van"
+  description="Professional van services in Ayrshire"
+  canonical={`https://chrisyourmanwithavan.netlify.app/locations/${slug}`}
+>
+  <LocationDetailComponent slug={slug} client:load />
+</BaseLayout>
+

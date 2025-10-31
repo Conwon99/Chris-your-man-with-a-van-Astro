@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceDetailComponent from '../../pages/ServiceDetail';
+import '../../index.css';
+
+export async function getStaticPaths() {
+  const services = [
+    'small-removals',
+    'courier',
+    'waste-removal',
+    'collection-and-delivery',
+    'end-of-tenancy',
+    'flat-pack-assembly',
+  ];
+
+  return services.map((slug) => ({
+    params: { slug },
+  }));
+}
+
+const { slug } = Astro.params;
+---
+
+<BaseLayout
+  title="Service Details | Chris, Your Man with a Van"
+  description="Professional van services in Ayrshire"
+  canonical={`https://chrisyourmanwithavan.netlify.app/services/${slug}`}
+>
+  <ServiceDetailComponent slug={slug} client:load />
+</BaseLayout>
+
