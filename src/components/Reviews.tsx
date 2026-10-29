@@ -1,42 +1,7 @@
-import { Star, ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { trackNavigation } from "@/utils/analytics";
 
 const Reviews = () => {
-  const reviews = [
-    {
-      name: "Ali Mitch",
-      location: "",
-      rating: 5,
-      text: "Fantastic service. efficient and kept in touch throughout. Will definitely use again. highly recommend",
-      service: ""
-    },
-    {
-      name: "Sammy Gibson Stead",
-      location: "",
-      rating: 5,
-      text: "I used Chris for a family member today who needed items picked up and delivered to new house . Very professional , queries answered promptly which was much appreciated. Price , time and updates all very clearly communicated before and on the day . Absolutey recommend these services, thankyou.",
-      service: ""
-    },
-    {
-      name: "Al Walking Ayrshire",
-      location: "",
-      rating: 5,
-      text: "I contacted Chris at short notice for a job to move a dining table from Lanarkshire to Ayrshire. Chis was friendly, approachable and very good value. The table was picked up and delivered to my home in Ayrshire in perfect condition. I will definitely use Chris again 👍🏻",
-      service: ""
-    }
-  ];
-
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        className={`w-5 h-5 ${
-          i < rating ? "text-accent fill-current" : "text-muted-foreground/30"
-        }`}
-      />
-    ));
-  };
-
   const handleGoogleReviewClick = () => {
     trackNavigation('google-reviews');
     window.open('https://g.page/r/CTXFEt51p7p3EBM/review', '_blank');
@@ -79,35 +44,9 @@ const Reviews = () => {
           </button>
         </div>
 
-        {/* Review Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {reviews.map((review, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <div className="flex justify-center mb-4">
-                {renderStars(review.rating)}
-              </div>
-              
-              <blockquote className="text-gray-700 mb-4 leading-relaxed text-sm">
-                "{review.text}"
-              </blockquote>
-              
-              <div className="space-y-2">
-                <h3 className="font-semibold text-gray-900 text-base">
-                  {review.name}
-                </h3>
-                {/* Facebook logo placeholder */}
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">f</span>
-                  </div>
-                  <span className="text-xs text-gray-500">Facebook</span>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* Google Reviews Widget (SociableKit) */}
+        <div className="mb-12">
+          <div className="sk-ww-google-reviews" data-embed-id="25725949"></div>
         </div>
 
         {/* Leave a Review Button */}
